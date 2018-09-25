@@ -2,8 +2,8 @@
 
 ## Introduction
 
-This module provides a Drush script that can be used to bulk replace existing MODS datastreams
-given a directory of files.
+This module provides a Drush script that can be used to bulk replace existing MODS or other datastreams, 
+given a directory of files named (PID)_MODS.xml or (PID)_JP2.jp2, where the PID has the colon replaced with a underscore.
 
 ## Requirements
 
