@@ -128,7 +128,7 @@ function islandora_datastream_replace_batch_operation($namespace, $source, $dsid
       print "\n file = $xbase \n";
       //get number part of pid 
       $pidnum=$xparts[1];
-      print "pidnum=$pidnum /n";
+      print "pidnum=$pidnum \n";
       if ($nstest!=$namespace) {
         print "\n extra namespace: $nstest \n";
         //continue;
