@@ -103,7 +103,6 @@ function islandora_datastream_replace_batch_operation($namespace, $source, $dsid
   // islandora_datastream_export module
   //  namespace_pidnumber_dsid.ext
   $files = scandir($source);
-  $nspart=$namespace.'_';
   //count expected files in this directory for sandbox
   $lscommand="ls -1 $source/*$dsid* | wc -l";
   $numfiles=exec($lscommand);
