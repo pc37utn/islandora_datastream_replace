@@ -109,7 +109,7 @@ function islandora_datastream_replace_batch_operation($namespace, $source, $dsid
   // loop through files
   foreach ($files as $fil) {
     // eliminate the dot directories
-    if ($fil === '.' || $fil === '..') {continue};
+    if ($fil === '.' || $fil === '..') continue;
     // work with files that are not the '.used' only
     if (substr($fil,-5,5)!='.used') {
       // get name without extension
