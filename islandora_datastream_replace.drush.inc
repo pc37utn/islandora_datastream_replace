@@ -132,7 +132,7 @@ function islandora_datastream_replace_batch_operation($namespace, $source, $dsid
       print "pidnum=$pidnum \n";
       if ($nstest!=$namespace) {
         print "\n extra namespace: $nstest \n";
-        //continue;
+        continue;
       }
       // assemble filename that is like pid
       $pidname=$nstest.'_'.$pidnum.'_'.$dsid;
