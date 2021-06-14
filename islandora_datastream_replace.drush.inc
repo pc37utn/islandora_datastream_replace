@@ -94,7 +94,8 @@ function islandora_datastream_replace_create_batch() {
 function islandora_datastream_replace_batch_operation($namespace, $source, $dsid, &$context) {
   $sandbox = &$context['sandbox'];
   // limit type of DSID
-  if (($dsid!='MODS')&&($dsid!='HOCR')&&($dsid!='OCR')&&($dsid!='OBJ')&&($dsid!='JPG')&&($dsid!='PREVIEW')&&($dsid!='TN')) {
+  $enabled_dsids = array("MODS","HOCR","OCR","OBJ","JPG","PREVIEW","TN","MP4","PROXY_MP3","TECHMD","TRANSCRIPT","TRANSCRIPT-ES");
+  if (!in_array($dsid, $enabled_dsids)) {
         print " DSID is not enabled \n";
         exit();
       }
@@ -110,7 +111,7 @@ function islandora_datastream_replace_batch_operation($namespace, $source, $dsid
   foreach ($files as $fil) {
     // eliminate the dot directories
     if ($fil === '.' || $fil === '..') continue;
-    // work with files that are not the '.used' only
+    // work with files that are not '.used' only
     if (substr($fil,-5,5)!='.used') {
       // get name without extension
       $xbase=pathinfo($fil, PATHINFO_FILENAME);
@@ -121,7 +122,7 @@ function islandora_datastream_replace_batch_operation($namespace, $source, $dsid
       //find namespace equivalent
       $nstest=$xparts[0];
       $dsidtest=$xparts[2];
-      if ($dsidtest!=$dsid) {
+      if ($dsidtest != $dsid) {
         print "dsid=$dsid  filename=$xbase \n";
         print " dsid is not in filename! \n";
         continue;
